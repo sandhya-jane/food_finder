@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:food_finder/scr/Screens/first/cart.dart';
-import 'package:food_finder/scr/Screens/first/cartdetail.dart';
+import 'package:food_finder/scr/Screens/cart_screen/components/cart_card.dart';
+import 'package:food_finder/scr/Screens/cart_screen/components/cart_lists.dart';
+
 class CartScreens extends StatefulWidget {
   @override
   _CartScreensState createState() => _CartScreensState();
 }
 
 class _CartScreensState extends State<CartScreens> {
+
+
   List<Cartdetail> _cartdetails = cartdetails;
   @override
   Widget build(BuildContext context) {

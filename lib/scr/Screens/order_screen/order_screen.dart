@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:food_finder/scr/Screens/order_screen/order_card.dart';
 
 class FoodOrderPage extends StatefulWidget {
+
+  final String title;
+  final String locn;
+
+  const FoodOrderPage({Key key, this.title, this.locn}) : super(key: key);
+
   @override
-  _FoodOrderPageState createState() => _FoodOrderPageState();
+  _FoodOrderPageState createState() => _FoodOrderPageState(title, locn);
 }
 
 class _FoodOrderPageState extends State<FoodOrderPage> {
   int counter = 3;
+
+  final String title;
+  final String locn;
+
+  _FoodOrderPageState(this.title, this.locn);
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +74,7 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                   child: Row(
                   children:<Widget>[
                   Text(
-                    "FoodCafe",
+                    title,
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xFF3a3a3b),
@@ -80,7 +94,7 @@ class _FoodOrderPageState extends State<FoodOrderPage> {
                    padding: const EdgeInsets.only(left:5.0),
                    child: Row(
                       children: <Widget>[
-                        Text("Newroad",
+                        Text(locn,
                         style: TextStyle(
                           fontSize: 14,
                           color: Color(0xFF3a3a3b),
@@ -280,7 +294,7 @@ class TotalCalculationWidget extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       width: double.infinity,
-      height: 200.0,
+      height: 150.0,
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
           color: Color(0xFFfae3e2).withOpacity(0.1),
@@ -329,56 +343,7 @@ class TotalCalculationWidget extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "RESTAURANT SERVICE CHARGE",
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFF3a3a3b),
-                        fontWeight: FontWeight.w300),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "\Rs0.00",
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFF3a3a3b),
-                        fontWeight: FontWeight.w300),
-                    textAlign: TextAlign.left,
-                  )
-                ],
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "VAT",
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFF3a3a3b),
-                        fontWeight: FontWeight.w300),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "\Rs.0.00",
-                    style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFF3a3a3b),
-                        fontWeight: FontWeight.w300),
-                    textAlign: TextAlign.left,
-                  )
-                ],
-              ),
-
-              SizedBox(
-                height: 15,
-              ),
+              
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -454,143 +419,7 @@ class TotalCalculationWidget extends StatelessWidget {
 }
 */
 
-class CartItem extends StatelessWidget {
-  final String productName;
-  final String productPrice;
- // final String productImage;
-  final String productCartQuantity;
 
-  CartItem({
-    Key key,
-    @required this.productName,
-    @required this.productPrice,
-   // @required this.productImage,
-    @required this.productCartQuantity,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 80.0,
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-          color: Color(0xFFfae3e2).withOpacity(0.3),
-          spreadRadius: 1,
-          blurRadius: 1,
-          offset: Offset(0, 1),
-        ),
-      ]),
-      child: Card(
-          color: Colors.white,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(5.0),
-            ),
-          ),
-          child: Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.only(left: 5, right: 5, top: 10, bottom: 10),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-               /* Container(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Center(
-                        child: Image.asset(
-                      "$productImage",
-                      width: 60,
-                      height: 50,
-                    )),
-                  ),
-                ),
-                */
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Container(
-                              child: Text(
-                                "$productName",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xFF3a3a3b),
-                                    fontWeight: FontWeight.w400),
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Container(
-                              child: Text(
-                                "$productCartQuantity",
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF3a3a3b),
-                                    fontWeight: FontWeight.w400),
-                                textAlign: TextAlign.left,
-                              ),
-                            ),
-                          ],
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.only(left:200.0),
-                          child: Column(
-                            
-                            children: <Widget>[
-                              Text(
-                                  "$productPrice",
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      color: Color(0xFF3a3a3b),
-                                      fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.left,
-                                ),
-
-                            ],
-                          ),
-                        )
-                        /*SizedBox(
-                          width: 40,
-                        ),
-                        Container(
-                          alignment: Alignment.centerRight,
-                          child: Image.asset(
-                            "assets/images/e.jpg",
-                            width: 25,
-                            height: 25,
-                          ),
-                        )
-                        */
-                      ],
-                    ),
-                    /*Container(
-                      margin: EdgeInsets.only(left: 20),
-                      alignment: Alignment.centerRight,
-                      child: AddToCartMenu(2),
-                    )
-                    */
-                  ],
-                )
-              ],
-            ),
-          )),
-    );
-  }
-}
 
 /*class CartIconWithBadge extends StatelessWidget {
  final int counter = 3;

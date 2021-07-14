@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_finder/scr/Screens/first/page.dart';
+import 'package:food_finder/scr/Screens/restaurants_detail_screen/restaurants_detail_screen.dart';
+//import 'package:food_finder/scr/Screens/first/page.dart';
 import 'package:food_finder/scr/widgets/commons.dart';
 
 
